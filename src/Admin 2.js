@@ -1,24 +1,30 @@
-import Sidebar from "./components/sidebar/Sidebar";
+import Leftbar from "./components/leftbar/Leftbar";
 import Topbar from "./components/topbar/Topbar";
 import "./App.css";
-import Home from "./pages/home/Home";
+import Koti from "./pages/koti/Koti";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
 import NewUser from "./pages/newUser/NewUser";
-import ProductList from "./pages/productList/ProductList";
-import Product from "./pages/product/Product";
-import NewProduct from "./pages/newProduct/NewProduct";
+import JobList from "./pages/jobList/JobList";
+import Job from "./pages/job/Job";
+import Application from "./pages/application/Application";
+import Footer from "./components/footer/Footer";
+
+
+
+
+
 
 function Admin() {
   return (
     <Router>
       <Topbar />
       <div className="container">
-        <Sidebar />
+        <Leftbar />
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Koti />
           </Route>
           <Route path="/users">
             <UserList />
@@ -29,17 +35,18 @@ function Admin() {
           <Route path="/newUser">
             <NewUser />
           </Route>
-          <Route path="/products">
-            <ProductList />
+          <Route path="/vacancies">
+            <JobList />
           </Route>
-          <Route path="/product/:productId">
-            <Product />
+          <Route path="/job/:productId">
+            <Job />
           </Route>
-          <Route path="/newproduct">
-            <NewProduct />
+          <Route path="/application">
+            <Application />
           </Route>
         </Switch>
       </div>
+      <Footer />
     </Router>
   );
 }
